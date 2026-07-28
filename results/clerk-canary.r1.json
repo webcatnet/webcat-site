@@ -1,0 +1,22 @@
+{
+  "task": "clerk-canary",
+  "runId": "r1",
+  "status": "success",
+  "summary": [
+    "Created handoff/clerk-canary.md with exactly the one confirmation line the task specified.",
+    "One file added, single line of text, nothing else changed in the repo.",
+    "This is a tiny end-to-end canary for the hands-off loop: queued by Cowork via the clerk, built headless by the worker.",
+    "Committed to handoff/clerk-canary.r1, pushed, and opened PR #19.",
+    "Stopped at 'PR ready' — no merge, no deploy, nothing outside this repo."
+  ],
+  "branch": "handoff/clerk-canary.r1",
+  "pr": "https://github.com/webcatnet/webcat-site/pull/19",
+  "filesChanged": [
+    "handoff/clerk-canary.md",
+    "results/clerk-canary.r1.json"
+  ],
+  "model": "claude-opus-4-8[1m]",
+  "started": "2026-07-28T03:40:33Z",
+  "finished": "2026-07-28T03:40:54Z",
+  "notes": "Incidental observation, not acted on: handoff/NEXT-TASK.md on main still holds an older 'loop-proof.md' task (dated 2026-07-14), while an unmerged commit (c84f366, 'clerk: queue task 37982d1c...') rewrites it. I did not touch NEXT-TASK.md — per the driver prompt the task for this run comes from the prompt itself, not from that file. No blockers. Filename follows the results/README.md <task-id>.<run-id> pattern (clerk-canary.r1)."
+}
