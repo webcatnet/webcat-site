@@ -1,20 +1,7 @@
-# Task
+# Clerk canary - queued by Cowork through the mail clerk
 
-## What I want
-Add an HTML comment near the very top of the holding page that reads: migrated to webcatnet org 2026-07-18. Do not change anything visible on the page.
+Create one new file named handoff/clerk-canary.md containing exactly this single line of text:
 
-## Where
-Only the files this change needs — inside this repository, nothing else.
+Clerk canary OK - queued by Cowork via the clerk, built by the worker, approved by Reny on the phone.
 
-## Done looks like
-The change is made and the site still renders correctly; nothing unrelated is touched.
-
-## Model
-Claude (the subscription the worker is signed in with).
-
-## Rules
-- The charter (`Infra/AI Executor Charter.md`) is binding. Work ONLY in this repository.
-- Branch `handoff/cc-ec9010ac`, commit, push, open a PR with a plain-English summary.
-- Write `results/cc-ec9010ac.json` per the results contract.
-- HARD STOP at "PR ready" — never merge, never deploy, never touch DNS/GoDaddy/Azure/WebLab.
-- If anything is unclear or risky: stop, and explain plainly in the result file and PR.
+Change nothing else. This is a tiny end-to-end test of the hands-off loop.
