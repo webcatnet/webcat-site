@@ -1,129 +1,353 @@
 <!DOCTYPE html>
-<!-- migrated to webcatnet org 2026-07-18 -->
+<!-- webcat.net homepage — chosen design "B content in C look" (2026-07-19), confirmed by Reny 2026-10-28 -->
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webcat.net Corp — IT Services, Software &amp; Domains</title>
-<meta name="description" content="Webcat.net Corp provides managed IT services, WebLab calibration-lab software, domain registration, and (soon) AI services for small companies.">
-<meta property="og:title" content="Webcat.net Corp">
-<meta property="og:description" content="IT services · WebLab software · Domains · AI services (coming soon)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A2540'/%3E%3Ctext x='32' y='44' font-family='Arial,sans-serif' font-size='34' font-weight='bold' fill='%2300E0C0' text-anchor='middle'%3Ew.%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Webcat.net Corp — Real people and smart AI, working together</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230A2540'/><g fill='%2300E0C0'><circle cx='17' cy='14' r='4'/><circle cx='47' cy='14' r='4'/><circle cx='15' cy='37' r='3.6'/><circle cx='49' cy='37' r='3.6'/><circle cx='32' cy='49' r='3.8'/></g><circle cx='26' cy='31' r='3.2' fill='%23fff'/><circle cx='38' cy='31' r='3.2' fill='%23fff'/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy-deep:#071A2F; --navy:#0A2540; --panel:#0E2C4C; --line:rgba(148,184,220,.16);
-    --ink:#EAF2FA; --muted:#9DB4CC; --teal:#00E0C0; --teal-deep:#00BFA6; --cyan:#06B6D4; --violet:#A78BFA;
+    --bg:#060D18; --bg2:#0A1524; --navy-900:#071A2F; --navy-800:#0A2540; --navy-700:#0E2E4E;
+    --teal:#00E0C0; --cyan:#22C7E6; --violet:#A78BFA;
+    --ink:#EAF2FB; --slate:#9FB0C2; --mist:#7C8C9C;
+    --line:#17293E; --card:#0C1826;
+    --head:"Space Grotesk","Inter",system-ui,sans-serif;
+    --body:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+    --radius:16px;
   }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html,body{height:100%;}
-  body{
-    font-family:'Inter',system-ui,sans-serif; color:var(--ink); line-height:1.6;
-    background:radial-gradient(900px 500px at 85% -10%, rgba(6,182,212,.16), transparent 60%),
-               radial-gradient(700px 450px at -10% 110%, rgba(0,224,192,.10), transparent 55%),
-               linear-gradient(160deg, var(--navy-deep), var(--navy) 55%, #081F38);
-    min-height:100vh; display:flex; flex-direction:column;
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+  h1,h2,h3{font-family:var(--head);line-height:1.12;letter-spacing:-.02em}
+  .accent{background:linear-gradient(90deg,var(--teal),var(--cyan) 55%,var(--violet));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+  /* ---------- Header ---------- */
+  header{position:sticky;top:0;z-index:50;background:rgba(6,13,24,.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.07)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:2px;text-decoration:none}
+  .brand .dot{width:46px;height:46px;flex:none;display:grid;place-items:center}
+  .brand .dot svg{width:46px;height:46px}
+  .brandstack{display:flex;flex-direction:column;align-items:center;gap:2px;line-height:1}
+  .brandword{font-family:var(--head);font-weight:700;font-size:1.4rem;letter-spacing:-.01em;background:linear-gradient(90deg,#FFFFFF 0%,#FFFFFF 38%,#8FF1E4 54%,#00E0C0 68%,#33B7EA 83%,#A78BFA 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .brandpulse{width:126px;height:8px;display:block}
+  .brandtag{font-family:var(--head);font-size:.4rem;font-weight:500;letter-spacing:.06em;color:#7C93AC;white-space:nowrap}
+  nav.links{display:flex;gap:30px}
+  nav.links a{color:#C7D3E0;font-size:.94rem;font-weight:500;transition:color .15s}
+  nav.links a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--head);font-weight:600;font-size:.95rem;padding:11px 20px;border-radius:999px;cursor:pointer;transition:transform .12s ease, box-shadow .2s, background .2s;border:0}
+  .btn-primary{background:linear-gradient(135deg,var(--teal),var(--cyan));color:#04202b;box-shadow:0 8px 22px rgba(0,224,192,.35)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(0,224,192,.5)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+  .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+  .header-cta{padding:9px 18px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;background:radial-gradient(1100px 520px at 78% -8%,rgba(34,199,230,.2),transparent 60%),radial-gradient(820px 480px at 6% 8%,rgba(167,139,250,.15),transparent 55%)}
+  .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(760px 420px at 72% 26%,#000,transparent 76%);pointer-events:none}
+  .hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:82px 0 88px}
+  .pill{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-weight:500;font-size:.76rem;letter-spacing:.02em;color:var(--teal);background:rgba(0,224,192,.09);border:1px solid rgba(0,224,192,.24);padding:6px 13px;border-radius:999px;margin-bottom:22px}
+  .pill b{color:#C9B7FB;font-weight:500}
+  .hero h1{font-size:clamp(2.2rem,4.8vw,3.5rem);font-weight:700;margin-bottom:20px}
+  .hero p.lead{font-size:clamp(1.05rem,2vw,1.24rem);color:var(--slate);max-width:540px;margin-bottom:32px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+
+  /* hero art — human + AI network card */
+  .hero-art{position:relative;background:linear-gradient(160deg,var(--card),#0A1420);border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.4);overflow:hidden}
+  .hero-art::before{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,192,.14),transparent 70%);top:-70px;left:-50px}
+  .hero-art::after{content:"";position:absolute;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.14),transparent 70%);bottom:-70px;right:-50px}
+  .hero-art .artlabel{position:relative;text-align:center;font-family:var(--mono);font-size:.78rem;letter-spacing:.24em;color:#8FA1B4;margin-top:6px}
+  .hero-art .side{position:relative;display:flex;justify-content:space-between;margin-top:14px;font-family:var(--head);font-size:.76rem;font-weight:600}
+  .hero-art .side .p{color:var(--teal)} .hero-art .side .a{color:var(--violet)}
+
+  /* ---------- Sections ---------- */
+  section{padding:80px 0}
+  .sec-head{max-width:640px;margin:0 auto 44px;text-align:center}
+  .sec-head .kicker{font-family:var(--mono);font-weight:500;color:var(--cyan);font-size:.78rem;letter-spacing:.02em;margin-bottom:12px}
+  .sec-head h2{font-size:clamp(1.8rem,3.6vw,2.4rem);margin-bottom:14px}
+  .sec-head p{color:var(--slate);font-size:1.05rem}
+
+  /* who we are */
+  .who{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg),var(--bg2))}
+  .who-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  .who .kicker{font-family:var(--mono);font-weight:500;color:var(--cyan);font-size:.78rem;letter-spacing:.02em;margin-bottom:12px}
+  .who h2{font-size:clamp(1.7rem,3.2vw,2.2rem);margin-bottom:18px}
+  .who p{color:var(--slate);margin-bottom:14px}
+  .who p strong{color:var(--ink);font-weight:600}
+  .stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:18px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 16px;text-align:center}
+  .stat .num{font-family:var(--head);font-weight:700;font-size:1.8rem;background:linear-gradient(90deg,var(--teal),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+  .stat .lab{color:var(--mist);font-size:.82rem;margin-top:4px}
+  .quote{border-left:2px solid var(--teal);padding:6px 0 6px 16px;color:var(--slate);font-size:.98rem;font-style:italic}
+
+  /* services grid */
+  .services{border-top:1px solid var(--line)}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;transition:transform .16s ease,border-color .2s;display:flex;flex-direction:column;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,transparent,var(--teal),transparent);opacity:0;transition:opacity .2s}
+  .card:hover{transform:translateY(-4px);border-color:#24405C}
+  .card:hover::before{opacity:1}
+  .icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px}
+  .icon svg{width:24px;height:24px;color:#fff}
+  .i-it{background:linear-gradient(135deg,#00E0C0,#22C7E6)}
+  .i-lab{background:linear-gradient(135deg,#22C7E6,#5B8DEF)}
+  .i-ai{background:linear-gradient(135deg,#A78BFA,#7C6CF0)}
+  .i-dom{background:linear-gradient(135deg,#00C2A8,#3AD07E)}
+  .card h3{font-size:1.1rem;margin-bottom:9px}
+  .card p{color:var(--slate);font-size:.93rem;flex:1}
+
+  /* human + AI band */
+  .band{border-top:1px solid var(--line);background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .duo{display:grid;grid-template-columns:1fr auto 1fr;gap:22px;align-items:stretch;max-width:900px;margin:0 auto}
+  .duo .side{border:1px solid var(--line);border-radius:18px;padding:28px;background:var(--card);position:relative;overflow:hidden}
+  .duo .side::before{content:"";position:absolute;inset:0 0 auto 0;height:3px}
+  .duo .side.people::before{background:linear-gradient(90deg,var(--teal),transparent)}
+  .duo .side.ai::before{background:linear-gradient(90deg,var(--violet),transparent)}
+  .duo .side .tagsm{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.72rem;padding:4px 10px;border-radius:999px;margin-bottom:14px}
+  .duo .side.people .tagsm{color:var(--teal);background:rgba(0,224,192,.1);border:1px solid rgba(0,224,192,.25)}
+  .duo .side.ai .tagsm{color:var(--violet);background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.28)}
+  .duo .side h4{font-family:var(--head);font-size:1.1rem;margin-bottom:8px}
+  .duo .side p{color:var(--slate);font-size:.93rem}
+  .duo .plus{display:grid;place-items:center;font-family:var(--head);font-size:2rem;color:var(--mist)}
+
+  /* trust */
+  .trust{border-top:1px solid var(--line);text-align:center;padding:56px 0}
+  .trust .lab{font-family:var(--mono);color:var(--mist);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+  .trust .logos{display:flex;justify-content:center;flex-wrap:wrap;gap:16px}
+  .trust .logos span{font-family:var(--head);font-weight:700;font-size:1.1rem;color:#C7D3E0;border:1px solid var(--line);border-radius:12px;padding:12px 26px;background:var(--card)}
+  .trust .logos span.you{color:var(--mist);border-style:dashed}
+
+  /* contact */
+  .contact{border-top:1px solid var(--line)}
+  .contact-card{position:relative;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));border:1px solid var(--line);border-radius:26px;padding:56px 40px;text-align:center;overflow:hidden}
+  .contact-card::before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(0,224,192,.26),transparent 70%);top:-130px;right:-90px}
+  .contact-card h2{position:relative;font-size:clamp(1.7rem,3.4vw,2.35rem);margin-bottom:14px}
+  .contact-card p{position:relative;color:var(--slate);max-width:520px;margin:0 auto 28px;font-size:1.05rem}
+  .contact-card .btn{position:relative;font-size:1.02rem;padding:14px 28px}
+
+  /* footer */
+  footer{background:var(--bg);border-top:1px solid var(--line);color:var(--mist);padding:52px 0 30px;font-size:.92rem}
+  .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;padding-bottom:30px;border-bottom:1px solid var(--line)}
+  .foot-brand{max-width:340px}
+  .foot-brand .brand{margin-bottom:12px}
+  .foot-brand p{color:var(--mist);font-size:.9rem}
+  .foot-brand b{color:var(--ink)}.foot-brand b span{color:var(--teal)}
+  .foot-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .foot-col h5{font-family:var(--head);color:#fff;font-size:.85rem;letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+  .foot-col a{display:block;color:var(--mist);margin-bottom:9px;transition:color .15s}
+  .foot-col a:hover{color:var(--teal)}
+  .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:22px;color:#5C6E82;font-size:.85rem;font-family:var(--mono)}
+
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:36px}
+    .who-grid{grid-template-columns:1fr;gap:30px}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .duo{grid-template-columns:1fr}.duo .plus{transform:rotate(90deg)}
+    nav.links{display:none}
   }
-  body{overflow-x:clip;}
-  .shell{width:100%; max-width:1080px; margin:0 auto; padding:0 28px;}
-  @media(max-width:560px){.shell{padding:0 20px;}}
-  header{padding:26px 0;}
-  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;}
-  .wordmark{font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:22px; letter-spacing:-.01em;}
-  .wordmark .net{color:var(--teal);}
-  .wordmark .corp{display:block; font-size:9px; font-weight:600; letter-spacing:.44em; color:var(--muted); margin-top:1px;}
-  .mail-link{font-size:14px; font-weight:500; color:var(--teal); text-decoration:none; border:1px solid rgba(0,224,192,.35); padding:9px 16px; border-radius:999px; transition:background .2s;}
-  .mail-link:hover{background:rgba(0,224,192,.1);}
-  main{flex:1; display:flex; flex-direction:column; justify-content:center; padding:34px 0 46px;}
-  .kicker{font-size:12px; font-weight:600; letter-spacing:.22em; text-transform:uppercase; color:var(--teal); margin-bottom:14px; max-width:100%;}
-  @media(max-width:560px){.kicker{letter-spacing:.14em;}}
-  h1{font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,4.6vw,50px); line-height:1.12; letter-spacing:-.015em; max-width:720px;}
-  h1 .grad{background:linear-gradient(90deg,var(--teal),var(--cyan)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-  .sub{margin-top:16px; font-size:17px; color:var(--muted); max-width:640px;}
-  .sub strong{color:var(--ink); font-weight:600;}
-  .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:44px;}
-  @media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr);}}
-  @media(max-width:560px){.grid{grid-template-columns:1fr;}}
-  .grid, .card{min-width:0;}
-  .card{
-    background:linear-gradient(180deg, rgba(20,50,84,.55), rgba(14,44,76,.35));
-    border:1px solid var(--line); border-radius:16px; padding:20px 18px 18px; min-height:172px;
-    display:flex; flex-direction:column; gap:8px; position:relative;
+  @media(max-width:560px){
+    .cards{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr 1fr}
+    .header-cta{display:none}
+    .contact-card{padding:44px 24px}
   }
-  .card svg{width:26px; height:26px; margin-bottom:2px;}
-  .card h2{font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:700; letter-spacing:-.01em;}
-  .card p{font-size:13.5px; color:var(--muted); line-height:1.5;}
-  .card a{color:var(--teal); text-decoration:none; font-size:13.5px; font-weight:600; margin-top:auto;}
-  .card a:hover{text-decoration:underline;}
-  .chip{position:absolute; top:14px; right:14px; font-size:10px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--violet); border:1px solid rgba(167,139,250,.4); background:rgba(124,58,237,.12); padding:4px 9px; border-radius:999px;}
-  .cta-row{margin-top:38px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;}
-  .cta{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15.5px; color:#04121F;
-    background:linear-gradient(90deg,var(--teal),var(--cyan)); text-decoration:none;
-    padding:13px 26px; border-radius:12px; box-shadow:0 8px 24px rgba(0,224,192,.25);
-  }
-  .cta-note{font-size:13.5px; color:var(--muted);}
-  footer{border-top:1px solid var(--line); padding:20px 0 26px;}
-  .foot{display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; font-size:12.5px; color:var(--muted);}
-  .foot .fam strong{color:var(--ink); font-weight:600;}
-  .foot a{color:var(--teal); text-decoration:none;}
 </style>
 </head>
 <body>
-  <header class="shell">
-    <div class="bar">
-      <div class="wordmark">webcat<span class="net">.net</span><span class="corp">C O R P</span></div>
-      <a class="mail-link" href="mailto:reny@webcat.net">reny@webcat.net</a>
-    </div>
-  </header>
 
-  <main class="shell">
-    <div class="kicker">A new webcat.net is on the way</div>
-    <h1>The site is being rebuilt.<br>The company is <span class="grad">open for business.</span></h1>
-    <p class="sub"><strong>Webcat.net Corp</strong> is a technology services and software company. While the new site takes shape, here's what we do — and how to reach us today.</p>
-    <p class="sub" style="font-size:14px; margin-top:10px;">Looking for the domain storefront? It moved to <a href="https://domains.webcat.net" style="color:var(--teal); text-decoration:none; font-weight:600;">domains.webcat.net</a>.</p>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <span class="dot" aria-hidden="true">
+        <svg viewBox="12 9 40 44"><g stroke="#22C7E6" stroke-width="1.7" stroke-linecap="round" opacity=".5" fill="none"><path d="M17 13 L25 23 L39 23 L47 13"/><path d="M25 23 L15 36 L32 49 L49 36 L39 23"/><line x1="25" y1="23" x2="26" y2="30"/><line x1="39" y1="23" x2="38" y2="30"/><line x1="26" y1="30" x2="32" y2="37"/><line x1="38" y1="30" x2="32" y2="37"/><line x1="15" y1="36" x2="32" y2="37"/><line x1="49" y1="36" x2="32" y2="37"/></g><g fill="#00E0C0"><circle cx="17" cy="13" r="3.6"/><circle cx="47" cy="13" r="3.6"/><circle cx="25" cy="23" r="2.8"/><circle cx="39" cy="23" r="2.8"/><circle cx="15" cy="36" r="2.8"/><circle cx="49" cy="36" r="2.8"/><circle cx="32" cy="49" r="3"/><circle cx="32" cy="37" r="2.2"/></g><circle cx="26" cy="30" r="2.9" fill="#fff"/><circle cx="38" cy="30" r="2.9" fill="#fff"/></svg>
+      </span>
+      <span class="brandstack">
+        <span class="brandword">webcat.net</span>
+        <svg class="brandpulse" viewBox="0 0 130 8" aria-hidden="true"><defs><linearGradient id="hpl" x1="6" y1="0" x2="124" y2="0" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#00E0C0" stop-opacity="0"/><stop offset=".34" stop-color="#00E0C0"/><stop offset=".66" stop-color="#A78BFA"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></linearGradient></defs><rect x="6" y="3.1" width="118" height="1.4" rx=".7" fill="url(#hpl)"/><circle cx="65" cy="3.8" r="2.7" fill="#A78BFA"/></svg>
+        <span class="brandtag">HUMAN&nbsp;+&nbsp;AI,&nbsp;WORKING&nbsp;TOGETHER</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#who">About</a>
+      <a href="#services">Services</a>
+      <a href="#band">Human + AI</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#contact">Let's talk</a>
+  </div>
+</header>
 
-    <div class="grid">
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00E0C0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><circle cx="6.5" cy="7" r="1" fill="#00E0C0" stroke="none"/><circle cx="6.5" cy="17" r="1" fill="#00E0C0" stroke="none"/></svg>
-        <h2>Managed IT Services</h2>
-        <p>Hands-on IT support, infrastructure, and consulting for small and mid-size businesses that need it done right.</p>
-        <a href="mailto:reny@webcat.net?subject=IT%20Services%20inquiry">Get in touch →</a>
+<main id="top">
+  <!-- HERO (Option B wording) -->
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="pill">A small team&nbsp; + &nbsp;<b>big technology</b></span>
+        <h1>Real people and smart AI, <span class="accent">working together</span> for your business.</h1>
+        <p class="lead">We're a small, hands-on tech company. You get someone who actually knows your setup — backed by modern AI that helps us do more, faster, for less.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">Let's talk</a>
+          <a class="btn btn-ghost" href="#services">What we do →</a>
+        </div>
       </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M5 8a7 7 0 1 0 14 0"/><path d="M5 8h14"/><path d="M8 21h8"/><path d="M12 15v6"/></svg>
-        <h2>WebLab</h2>
-        <p>Our calibration-lab management platform — scheduling, equipment, and certificates in one place. In production with our first lab customer.</p>
-        <a href="mailto:reny@webcat.net?subject=WebLab%20demo%20request">Request a demo →</a>
-      </div>
-      <div class="card">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#00E0C0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20a15 15 0 0 1 0-20"/></svg>
-        <h2>Domain Registration</h2>
-        <p>Search, register, and manage domains through our full-service storefront, powered by GoDaddy.</p>
-        <a href="https://domains.webcat.net">Find your domain →</a>
-      </div>
-      <div class="card">
-        <span class="chip">Coming soon</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.9 4.6 1.9 5.6 6.5 6.5c-4.6.9-5.6 1.9-6.5 6.5c-.9-4.6-1.9-5.6-6.5-6.5C10.1 8.6 11.1 7.6 12 3Z"/><path d="M19 14c.4 2 .9 2.5 3 3c-2.1.5-2.6 1-3 3c-.4-2-.9-2.5-3-3c2.1-.5 2.6-1 3-3Z"/></svg>
-        <h2>AI Services</h2>
-        <p>Practical AI adoption for small companies — from first workflow to full rollout. Launching soon.</p>
-        <a href="mailto:reny@webcat.net?subject=AI%20Services%20waitlist">Join the waitlist →</a>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 260 210" width="100%">
+          <g stroke="#22C7E6" stroke-width="1.6" opacity=".38" fill="none">
+            <line x1="80" y1="60" x2="180" y2="150"/><line x1="80" y1="150" x2="180" y2="60"/>
+            <line x1="80" y1="60" x2="80" y2="150"/><line x1="180" y1="60" x2="180" y2="150"/>
+            <line x1="80" y1="60" x2="130" y2="105"/><line x1="180" y1="60" x2="130" y2="105"/>
+            <line x1="80" y1="150" x2="130" y2="105"/><line x1="180" y1="150" x2="130" y2="105"/>
+          </g>
+          <circle cx="80" cy="60" r="13" fill="#00E0C0"/><circle cx="80" cy="150" r="13" fill="#00E0C0"/>
+          <circle cx="180" cy="60" r="13" fill="#A78BFA"/><circle cx="180" cy="150" r="13" fill="#A78BFA"/>
+          <circle cx="130" cy="105" r="9" fill="#fff"/>
+        </svg>
+        <div class="side"><span class="p">◐ PEOPLE</span><span class="a">AI ◑</span></div>
+        <div class="artlabel">HUMAN&nbsp;+&nbsp;AI</div>
       </div>
     </div>
+  </section>
 
-    <div class="cta-row">
-      <a class="cta" href="mailto:reny@webcat.net">Contact us</a>
-      <span class="cta-note">Direct line to the owner. Replies from a human — assisted by AI.</span>
+  <!-- WHO WE ARE (Option B wording) -->
+  <section class="who" id="who">
+    <div class="wrap who-grid">
+      <div>
+        <div class="kicker">// who we are</div>
+        <h2>Small enough to care, sharp enough to deliver.</h2>
+        <p>Webcat.net Corp is a small technology company that helps growing businesses run on solid, modern tech — IT, custom software, AI, and domains. No call centers, no runaround: you deal with people who know your name and your systems.</p>
+        <p>What lets a small team punch above its weight is <strong>AI</strong>. We use it to build faster, catch problems sooner, and keep our prices fair — while a real person stays in charge of every decision.</p>
+      </div>
+      <div>
+        <div class="stats">
+          <div class="stat"><div class="num">2</div><div class="lab">customers who trust us</div></div>
+          <div class="stat"><div class="num">1:1</div><div class="lab">you + your tech person</div></div>
+          <div class="stat"><div class="num">100%</div><div class="lab">human-approved work</div></div>
+        </div>
+        <div class="quote">"Right-sized" isn't a weakness — it's the whole point. You get a partner who answers, not a vendor who forgets you.</div>
+      </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="shell">
-    <div class="foot">
-      <span class="fam"><strong>Webcat.net Corp</strong> family: WebLab · Webcat Domains · Rookie Shots</span>
-      <span>© 2026 Webcat.net Corp · <a href="mailto:reny@webcat.net">reny@webcat.net</a></span>
+  <!-- SERVICES (Option B wording, C cards) -->
+  <section class="services" id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">// what we do</div>
+        <h2>Four ways we help — one point of contact</h2>
+        <p>Everything your business needs to run on good tech, without juggling five vendors.</p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="icon i-it"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 20h8M12 16v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>IT services &amp; support</h3>
+          <p>Keep your systems secure, updated, and running — so downtime never slows you down.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-lab"><svg viewBox="0 0 24 24" fill="none"><path d="M9 3v6l-5 9a2 2 0 001.8 3h12.4a2 2 0 001.8-3l-5-9V3" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 3h6M7 15h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <h3>WebLab software</h3>
+          <p>Our calibration-lab platform — modern, multi-tenant, and built for accuracy.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-ai"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.1 5.2L19 10l-4.9 1.8L12 17l-2.1-5.2L5 10l4.9-1.8L12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+          <h3>AI adoption</h3>
+          <p>We help you put AI to work safely and simply — the same way we do ourselves.</p>
+        </div>
+        <div class="card">
+          <div class="icon i-dom"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18" stroke="currentColor" stroke-width="2"/></svg></div>
+          <h3>Domains &amp; hosting</h3>
+          <p>Register and manage domains through our storefront — simple, and with real support.</p>
+          <p><a href="https://domains.webcat.net" style="color:var(--teal);font-weight:600;text-decoration:none">Find your domain →</a></p>
+        </div>
+      </div>
     </div>
-  </footer>
+  </section>
+
+  <!-- HUMAN + AI BAND (Option B wording) -->
+  <section class="band" id="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">// our way of working</div>
+        <h2>The best of <span style="color:var(--teal)">human</span> + <span style="color:var(--violet)">AI</span></h2>
+        <p>A real person stays in charge of every decision — AI just makes that person faster.</p>
+      </div>
+      <div class="duo">
+        <div class="side people">
+          <span class="tagsm">◐ People</span>
+          <h4>People, for the things that matter</h4>
+          <p>Judgment, relationships, understanding your business, and standing behind the work. A human is always in charge.</p>
+        </div>
+        <div class="plus">+</div>
+        <div class="side ai">
+          <span class="tagsm">◑ AI</span>
+          <h4>AI, for the heavy lifting</h4>
+          <p>Speed, consistency, watching for problems 24/7, and doing the repetitive work — so we can focus on you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST (Option B wording) -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="lab">Trusted by the businesses we serve</div>
+      <div class="logos">
+        <span>Calibration labs</span>
+        <span>Aerospace NDT</span>
+        <span class="you">+ your business</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT (Option B wording) -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="contact-card">
+        <h2>Let's talk about your technology.</h2>
+        <p>Tell us what you're working on — IT, a software idea, putting AI to work, or a domain. A real person will get back to you within one business day.</p>
+        <a class="btn btn-primary" href="mailto:reny@webcat.net?subject=Inquiry%20from%20webcat.net">✉ Email us at reny@webcat.net</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a class="brand" href="#top">
+          <span class="dot" aria-hidden="true"><svg viewBox="0 0 64 64"><g stroke="#22C7E6" stroke-width="1.7" stroke-linecap="round" opacity=".5" fill="none"><path d="M17 13 L25 23 L39 23 L47 13"/><path d="M25 23 L15 36 L32 49 L49 36 L39 23"/><line x1="25" y1="23" x2="26" y2="30"/><line x1="39" y1="23" x2="38" y2="30"/><line x1="26" y1="30" x2="32" y2="37"/><line x1="38" y1="30" x2="32" y2="37"/><line x1="15" y1="36" x2="32" y2="37"/><line x1="49" y1="36" x2="32" y2="37"/></g><g fill="#00E0C0"><circle cx="17" cy="13" r="3.6"/><circle cx="47" cy="13" r="3.6"/><circle cx="25" cy="23" r="2.8"/><circle cx="39" cy="23" r="2.8"/><circle cx="15" cy="36" r="2.8"/><circle cx="49" cy="36" r="2.8"/><circle cx="32" cy="49" r="3"/><circle cx="32" cy="37" r="2.2"/></g><circle cx="26" cy="30" r="2.9" fill="#fff"/><circle cx="38" cy="30" r="2.9" fill="#fff"/></svg></span>
+          <b>webcat<span>.net</span></b>
+        </a>
+        <p>Webcat.net Corp — a small team and smart AI, working together on IT, software, AI adoption, and domains for growing businesses.</p>
+      </div>
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h5>Services</h5>
+          <a href="#services">IT services</a>
+          <a href="#services">WebLab</a>
+          <a href="#services">AI adoption</a>
+          <a href="#services">Domains</a>
+        </div>
+        <div class="foot-col">
+          <h5>Company</h5>
+          <a href="#who">About</a>
+          <a href="#band">Human + AI</a>
+          <a href="mailto:reny@webcat.net">reny@webcat.net</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Webcat.net Corp · Human + AI, working together</div>
+      <div>IT · Software · AI · Domains</div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
