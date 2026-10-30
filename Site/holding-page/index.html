@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- webcat.net homepage — chosen design "B content in C look" (2026-07-19), confirmed by Reny 2026-10-28 -->
+<!-- webcat.net homepage — chosen design "B content in C look" (2026-07-19), confirmed by Reny 2026-10-28 · v2 2026-10-29: Domains band + info@webcat.net -->
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -144,6 +144,28 @@
   .foot-col a:hover{color:var(--teal)}
   .foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:22px;color:#5C6E82;font-size:.85rem;font-family:var(--mono)}
 
+
+  /* ---------- Domains band (v2, 2026-10-29) ---------- */
+  nav.links a.nav-dom{color:var(--teal);font-weight:600;border:1px solid rgba(0,224,192,.35);padding:5px 14px;border-radius:999px;margin:-6px 0}
+  nav.links a.nav-dom:hover{background:rgba(0,224,192,.1);color:var(--teal)}
+  .domains{border-top:1px solid var(--line);padding:64px 0;background:radial-gradient(900px 380px at 50% 0%,rgba(0,224,192,.12),transparent 70%),linear-gradient(180deg,#081A2C,var(--bg))}
+  .dom-card{position:relative;max-width:900px;margin:0 auto;text-align:center;background:linear-gradient(160deg,rgba(14,46,78,.85),rgba(12,24,38,.95));border:1px solid rgba(0,224,192,.28);border-radius:26px;padding:48px 40px 40px;box-shadow:0 30px 80px rgba(0,0,0,.45),0 0 0 1px rgba(0,224,192,.06) inset;overflow:hidden}
+  .dom-card::before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.18),transparent 70%);top:-140px;left:-90px}
+  .dom-card>*{position:relative}
+  .dom-card .kicker{font-family:var(--mono);font-weight:500;color:var(--cyan);font-size:.8rem;margin-bottom:12px}
+  .dom-card h2{font-size:clamp(1.8rem,3.8vw,2.6rem);margin-bottom:12px}
+  .dom-card p.sub{color:var(--slate);font-size:1.06rem;max-width:600px;margin:0 auto 26px}
+  .dom-search{display:flex;gap:10px;max-width:640px;margin:0 auto;background:#fff;border-radius:999px;padding:6px;box-shadow:0 10px 30px rgba(0,224,192,.18)}
+  .dom-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:500 1.05rem var(--body);color:#0A2540;padding:10px 18px}
+  .dom-search input::placeholder{color:#7A8794}
+  .dom-search button{font-size:1rem;padding:12px 26px}
+  .dom-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 22px;margin-top:22px;font-size:.95rem}
+  .dom-links a{color:var(--teal);font-weight:600}
+  .dom-links a:hover{text-decoration:underline}
+  .dom-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
+  .dom-chips span{font-family:var(--mono);font-size:.74rem;color:#C7D3E0;border:1px solid var(--line);background:rgba(12,24,38,.8);padding:5px 12px;border-radius:999px}
+  @media(max-width:560px){.dom-card{padding:38px 20px 30px}.dom-search{flex-direction:column;border-radius:18px}.dom-search button{justify-content:center}}
+
   @media(max-width:900px){
     .hero-inner{grid-template-columns:1fr;gap:36px}
     .who-grid{grid-template-columns:1fr;gap:30px}
@@ -174,6 +196,7 @@
       </span>
     </a>
     <nav class="links">
+      <a href="#domains" class="nav-dom">Domains</a>
       <a href="#who">About</a>
       <a href="#services">Services</a>
       <a href="#band">Human + AI</a>
@@ -193,7 +216,7 @@
         <p class="lead">We're a small, hands-on tech company. You get someone who actually knows your setup — backed by modern AI that helps us do more, faster, for less.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#contact">Let's talk</a>
-          <a class="btn btn-ghost" href="#services">What we do →</a>
+          <a class="btn btn-ghost" href="#domains">🌐 Find a domain</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -210,6 +233,26 @@
         </svg>
         <div class="side"><span class="p">◐ PEOPLE</span><span class="a">AI ◑</span></div>
         <div class="artlabel">HUMAN&nbsp;+&nbsp;AI</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS BAND (v2) — big, easy path to the domain store -->
+  <section class="domains" id="domains">
+    <div class="wrap">
+      <div class="dom-card">
+        <div class="kicker">// domains</div>
+        <h2>Find the <span class="accent">perfect domain</span> for your business</h2>
+        <p class="sub">Search, register, and manage domains — plus email and hosting — in our domain store, with real support from a real person.</p>
+        <form class="dom-search" action="https://www.secureserver.net/products/domain-registration/find" method="get" role="search">
+          <input type="hidden" name="plid" value="111815">
+          <input type="text" name="domainToCheck" placeholder="Find your perfect domain name" aria-label="Domain name to search" autocomplete="off" required>
+          <button class="btn btn-primary" type="submit">Search domains</button>
+        </form>
+        <div class="dom-links">
+          <a href="https://domains.webcat.net">Visit the domain store →</a>
+        </div>
+        <div class="dom-chips"><span>Domains</span><span>Email</span><span>Hosting</span><span>SSL</span><span>Website builder</span></div>
       </div>
     </div>
   </section>
@@ -310,7 +353,7 @@
       <div class="contact-card">
         <h2>Let's talk about your technology.</h2>
         <p>Tell us what you're working on — IT, a software idea, putting AI to work, or a domain. A real person will get back to you within one business day.</p>
-        <a class="btn btn-primary" href="mailto:reny@webcat.net?subject=Inquiry%20from%20webcat.net">✉ Email us at reny@webcat.net</a>
+        <a class="btn btn-primary" href="mailto:info@webcat.net?subject=Inquiry%20from%20webcat.net">✉ Email us at info@webcat.net</a>
       </div>
     </div>
   </section>
@@ -332,13 +375,13 @@
           <a href="#services">IT services</a>
           <a href="#services">WebLab</a>
           <a href="#services">AI adoption</a>
-          <a href="#services">Domains</a>
+          <a href="https://domains.webcat.net">Domains</a>
         </div>
         <div class="foot-col">
           <h5>Company</h5>
           <a href="#who">About</a>
           <a href="#band">Human + AI</a>
-          <a href="mailto:reny@webcat.net">reny@webcat.net</a>
+          <a href="mailto:info@webcat.net">info@webcat.net</a>
         </div>
       </div>
     </div>
